@@ -29,22 +29,22 @@ services:
       ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL: "0"
     depends_on:
       - zookeeper
-#  kafka-gui:
-#    image: obsidiandynamics/kafdrop
-#    ports:
-#      - "9000:9000"
-#    environment:
-#      KAFKA_BROKERCONNECT: kafka:29092
-#    depends_on:
-#      - kafka
-  conductor:
-    image: conduktor/conduktor-platform:latest
+  kafka-gui:
+    image: obsidiandynamics/kafdrop
     ports:
-      - "8888:80"
+      - "9000:9000"
     environment:
-      KAFKA_BOOTSTRAP_SERVER: kafka:29092
+      KAFKA_BROKERCONNECT: kafka:29092
     depends_on:
       - kafka
+#  conductor:
+#    image: conduktor/conduktor-platform:latest
+#    ports:
+#      - "8888:80"
+#    environment:
+#      KAFKA_BOOTSTRAP_SERVER: kafka:29092
+#    depends_on:
+#      - kafka
 
 #volumes:
 #  zookeeper_data:
